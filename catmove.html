@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id=myCanvas width=300 height=300 style="background-color: pink">
+    </canvas>
+    <script>
+        var ctx = myCanvas.getContext("2d");
+        var y_pos = 0;
+        var MyImg = new Image();
+        MyImg.src = "https://s2js.com/img/etc/cat_grumpy.png";
+
+        function MyTimer() {
+            ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
+            y_pos = y_pos + 1;
+            ctx.drawImage(MyImg, 130, y_pos);
+            ctx.drawImage(MyImg, 50, myCanvas.height - y_pos);
+            ctx.drawImage(MyImg, y_pos, y_pos);
+        }
+        setInterval(MyTimer, 40);
+    </script>
+</body>
+
+</html>
